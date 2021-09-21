@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><style>
+    .nopadding{
+        padding: 10px;
+    }
+    .btn_font{
+        font-size: 20px;
+    }
+</style>
+</head>
+<body>
+<h1 class="text-center">Calculator</h1>
+<div class="container ">
+    <div class="row bg-secondary">
+    <div class="container col-lg-6 p-5">
+        <div class="row">
+            <div class="col-xs-10 nopadding">
+            <input type="text" name="calculation" id="calculation" class="form-control" style="padding: 10px;font-size: 20px;height: 50px;">
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-xs-3 nopadding">
+            <button id="one" class="btn btn-primary btn-lg btn_font" onclick="UserClickButton('1')">1</button>
+        </div>
+        <div class="col-xs-3 nopadding">
+            <button id="two" class="btn btn-primary btn-lg btn_font" onclick="UserClickButton('2')">2</button>
+        </div>
+        <div class="col-xs-3 nopadding">
+            <button id="three" class="btn btn-primary btn-lg btn_font" onclick="UserClickButton('3')">3</button>
+        </div>
+        <div class="col-xs-3 nopadding">
+            <button id="add" class="btn btn-success btn-lg btn_font" onclick='UserClickButton("+")'>+</button>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-xs-3 nopadding">
+                <button id="four" class="btn btn-primary btn-lg btn_font" onclick='UserClickButton("4")'>4</button>
+            </div>
+            <div class="col-xs-3 nopadding">
+                <button id="five" class="btn btn-primary btn-lg btn_font" onclick='UserClickButton("5")'>5</button>
+            </div>
+            <div class="col-xs-3 nopadding">
+                <button id="six" class="btn btn-primary btn-lg btn_font" onclick='UserClickButton("6")'>6</button>
+            </div>
+            <div class="col-xs-3 nopadding">
+                <button id="minus" class="btn btn-success btn-lg btn_font" onclick='UserClickButton("-")'>-</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3 nopadding">
+                <button id="seven" class="btn btn-primary btn-lg btn_font" onclick='UserClickButton("7")'>7</button>
+            </div>
+            <div class="col-xs-3 nopadding">
+                <button id="eight" class="btn btn-primary btn-lg btn_font" onclick='UserClickButton("8")'>8</button>
+            </div>
+            <div class="col-xs-3 nopadding">
+                <button id="nine" class="btn btn-primary btn-lg btn_font" onclick='UserClickButton("9")'>9</button>
+            </div>
+            <div class="col-xs-3 nopadding">
+                <button id="multiply" class="btn btn-success btn-lg btn_font" onclick='UserClickButton("*")'>*</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3 nopadding">
+                <button id="dot" class="btn btn-primary btn-lg btn_font" onclick='UserClickButton(".")'>.</button>
+            </div>
+            <div class="col-xs-3 nopadding">
+                <button id="zero" class="btn btn-primary btn-lg btn_font" onclick='UserClickButton("0")'>0</button>
+            </div>
+            <div class="col-xs-3 nopadding">
+                <button id="equal" class="btn btn-primary btn-lg btn_font" onclick='CalculateValue()'>=</button>
+            </div>
+            <div class="col-xs-3 nopadding">
+                <button id="divide" class="btn btn-success btn-lg btn_font" onclick='UserClickButton("/")'>/</button>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="col-xs-3 nopadding">
+                <button id="add" class="btn btn-success btn-lg btn_font" onclick='UserClickButton("**")'>^</button>
+            </div>
+            <div class="col-xs-3 nopadding">
+                <button class="btn btn-danger btn-lg btn_font" onclick="ClearData()">C</button>
+            </div>
+    </div>
+    </div>
+    <div class="container  col-lg-6 text-white">
+        <div class="col-xs-3 pt-5 ">
+            <h2>History Log</h2>
+        </div>
+        <div class="col-lg-9 " id="history_log">
+        </div> 
+    </div>
+</div>
+</div>
+<script>
+var input_box = document.getElementById("calculation");
+var historyData = [];
+var expressionData = "";
+var resultData = "";
+input_box.onkeydown = function () {
+  console.log(input_box.value);
+};
+
+function UserClickButton(input) {
+  var oldinput = input_box.value;
+  var newinput = oldinput + input;
+  expressionData = newinput;
+  input_box.value = newinput;
+}
+function CalculateValue() {
+  console.log("Click");
+  var input = input_box.value;
+  input = input.replace('"', "").replace("'", "");
+  var result = eval(input);
+  resultData = result;
+  historyData.push({ expression: expressionData, result: resultData });
+  showLogdata();
+  resultData = "";
+  expressionData = "";
+  input_box.value = result;
+}
+function ClearData() {
+  input_box.value = "";
+}
+
+function showLogdata() {
+  var log = document.getElementById("history_log");
+  var string = "";
+  for (var key in historyData) {
+    string +=
+      "" +
+      historyData[key]["expression"] +
+      " = " +
+      historyData[key]["result"] +
+      "<br>";
+  }
+
+  log.innerHTML = string;
+}
+</script>
+</body>
+</html>
