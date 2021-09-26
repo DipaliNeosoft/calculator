@@ -11,63 +11,66 @@
     .btn_font{
         font-size: 20px;
     }
+    .c{
+        background-image: linear-gradient(45deg,deeppink,orange);
+    }
 </style>
 </head>
 <body>
 <h1 class="text-center">Calculator</h1>
 <div class="container ">
-    <div class="row bg-secondary">
-    <div class="container col-lg-6 col-sm-6 col-md-6 p-5 ">
+    <div class="row c">
+    <div class="container col-lg-6 col-sm-12 col-md-9 p-5 ">
         <div class="row">
             <div class="col-xs-10 nopadding">
-            <input type="text" name="calculation" id="calculation" size=22 class="form-control" style="padding: 30px;font-size: 20px;height: 40px;">
+            <input type="text" name="calculation" id="calculation" size=29 class="form-control" style="padding: 30px;font-size: 20px;height: 40px;">
             </div>
         </div>
     <div class="row">
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3  nopadding">
-            <button id="one" class="btn btn-primary btn-lg btn_font" onclick="UserClickButton('1')">1</button>
+            <button id="one" class="btn btn-primary btn-lg btn_font btn-block" onclick="UserClickButton('1')">1</button>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3  nopadding">
-            <button id="two" class="btn btn-primary btn-lg btn_font" onclick="UserClickButton('2')">2</button>
+            <button id="two" class="btn btn-primary btn-lg btn_font btn-block" onclick="UserClickButton('2')">2</button>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
-            <button id="three" class="btn btn-primary btn-lg btn_font" onclick="UserClickButton('3')">3</button>
+            <button id="three" class="btn btn-primary btn-lg btn_font btn-block" onclick="UserClickButton('3')">3</button>
         </div>
        
     </div>
         <div class="row">
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
-                <button id="four" class="btn btn-primary btn-lg btn_font" onclick='UserClickButton("4")'>4</button>
+                <button id="four" class="btn btn-primary btn-lg btn_font btn-block" onclick='UserClickButton("4")'>4</button>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
-                <button id="five" class="btn btn-primary btn-lg btn_font" onclick='UserClickButton("5")'>5</button>
+                <button id="five" class="btn btn-primary btn-lg btn_font btn-block" onclick='UserClickButton("5")'>5</button>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
-                <button id="six" class="btn btn-primary btn-lg btn_font" onclick='UserClickButton("6")'>6</button>
-            </div>
-           
-        </div>
-        <div class="row">
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
-                <button id="seven" class="btn btn-primary btn-lg btn_font" onclick='UserClickButton("7")'>7</button>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
-                <button id="eight" class="btn btn-primary btn-lg btn_font" onclick='UserClickButton("8")'>8</button>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
-                <button id="nine" class="btn btn-primary btn-lg btn_font" onclick='UserClickButton("9")'>9</button>
+                <button id="six" class="btn btn-primary btn-lg btn_font btn-block" onclick='UserClickButton("6")'>6</button>
             </div>
            
         </div>
         <div class="row">
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
-                <button id="dot" class="btn btn-primary btn-lg btn_font" onclick='UserClickButton(".")'>.</button>
+                <button id="seven" class="btn btn-primary btn-lg btn_font btn-block" onclick='UserClickButton("7")'>7</button>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
-                <button id="zero" class="btn btn-primary btn-lg btn_font" onclick='UserClickButton("0")'>0</button>
+                <button id="eight" class="btn btn-primary btn-lg btn_font btn-block" onclick='UserClickButton("8")'>8</button>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
-                <button id="equal" class="btn btn-primary btn-lg btn_font" onclick='CalculateValue()'>=</button>
+                <button id="nine" class="btn btn-primary btn-lg btn_font btn-block" onclick='UserClickButton("9")'>9</button>
+            </div>
+           
+        </div>
+        <div class="row">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
+                <button id="dot" class="btn btn-primary btn-lg btn_font btn-block" onclick='UserClickButton(".")'>.</button>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
+                <button id="zero" class="btn btn-primary btn-lg btn_font btn-block" onclick='UserClickButton("0")'>0</button>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
+                <button id="equal" class="btn btn-primary btn-lg btn_font btn-block" onclick='CalculateValue()'>=</button>
             </div>
            
         </div>
@@ -77,30 +80,30 @@
 
 <div class="row">
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3  nopadding">
-        <button id="add" class="btn btn-success btn-lg btn_font" onclick='UserClickButton("+")'>+</button>
+        <button id="add" class="btn btn-warning btn-lg btn_font btn-block" onclick='UserClickButton("+")'>+</button>
     </div>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
-        <button id="minus" class="btn btn-success btn-lg btn_font" onclick='UserClickButton("-")'>-</button>
+        <button id="minus" class="btn btn-warning btn-lg btn_font btn-block" onclick='UserClickButton("-")'>-</button>
     </div>
 
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
-        <button id="multiply" class="btn btn-success btn-lg btn_font" onclick='UserClickButton("*")'>*</button>
+        <button id="multiply" class="btn btn-warning btn-lg btn_font btn-block" onclick='UserClickButton("*")'>*</button>
     </div>
 </div>
 
     <div class="row">
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
-            <button id="divide" class="btn btn-success btn-lg btn_font" onclick='UserClickButton("/")'>/</button>
+            <button id="divide" class="btn btn-warning btn-lg btn_font btn-block" onclick='UserClickButton("/")'>/</button>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
-            <button id="add" class="btn btn-success btn-lg btn_font" onclick='UserClickButton("**")'>^</button>
+            <button id="add" class="btn btn-warning btn-lg btn_font btn-block" onclick='UserClickButton("**")'>^</button>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
-            <button class="btn btn-danger btn-lg btn_font" onclick="ClearData()">C</button>
+            <button class="btn btn-danger btn-lg btn_font btn-block" onclick="ClearData()">C</button>
         </div>
 </div>
     </div>
-    <div class="container  col-lg-6 col-sm-6 col-md-6 text-white">
+    <div class="container  col-lg-6 col-sm-12 col-md-6 text-white">
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 pt-5 ">
             <h2>History Log</h2>
         </div>
